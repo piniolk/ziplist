@@ -3,18 +3,17 @@
 function zipList(arrayOne, arrayTwo) {
   const result = [];
   for (let i = 0; i < arrayOne.length; i++) {
-    result[i * 2] = arrayOne[i];
-    result[i * 2 + 1] = arrayTwo[i];
+    result.push(arrayOne[i], arrayTwo[i]);
   }
   return result;
 }
 
-const arrayA = ['a', 'b', 'c'];
-const arrayB = ['1', '2', '3'];
+const arrayA = ['1', '2', '3'];
+const arrayB = ['a', 'b', 'c'];
 console.log(zipList(arrayA, arrayB));
 
 function zipListTheSimpleWay(arrayOne, arrayTwo) {
-  return _.map(arrayOne, arrayTwo, _.keys);
+  return _.flatten(_.zip(arrayOne, arrayTwo));
 }
 
 console.log(zipListTheSimpleWay(arrayA, arrayB));
